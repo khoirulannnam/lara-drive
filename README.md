@@ -1,66 +1,148 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Google Drive API Integration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7fafc;
+            color: #333;
+        }
 
-## About Laravel
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #2d3748;
+        }
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+        a {
+            color: #3182ce;
+            text-decoration: none;
+        }
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+        a:hover {
+            text-decoration: underline;
+        }
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
 
-## Learning Laravel
+        pre {
+            background-color: #edf2f7;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+        pre code {
+            display: block;
+            white-space: pre;
+        }
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4299e1;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+        .btn:hover {
+            background-color: #3182ce;
+        }
 
-## Laravel Sponsors
+        .container {
+            margin-bottom: 20px;
+        }
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+        .alert {
+            padding: 15px;
+            background-color: #f0f0f3;
+            border-left: 6px solid #4299e1;
+            margin-bottom: 20px;
+        }
 
-### Premium Partners
+        .alert p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+        .alert p strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
 
-## Contributing
+<body>
+    <div class="container">
+        <h1>Laravel Google Drive API Integration</h1>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+        <div class="alert">
+            <p><strong>Introduction:</strong> This Laravel project integrates Google Drive API for file storage using the <code>laravel-google-drive-storage</code> package. It allows you to store, retrieve, and manage files on Google Drive directly from your Laravel application.</p>
+        </div>
 
-## Code of Conduct
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#clone-repository">Clone Repository</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#additional-information">Additional Information</a></li>
+            <li><a href="#contributing">Contributing</a></li>
+            <li><a href="#license">License</a></li>
+        </ul>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+        <h2 id="prerequisites">Prerequisites</h2>
+        <ul>
+            <li>PHP >= 7.4</li>
+            <li>Composer</li>
+            <li>Laravel 10</li>
+            <li>Google Account with Google Drive API enabled</li>
+        </ul>
 
-## Security Vulnerabilities
+        <h2 id="clone-repository">Clone Repository</h2>
+        <p>Clone the repository:</p>
+        <pre><code>git clone &lt;repository-url&gt;
+cd &lt;project-folder&gt;</code></pre>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+        <p>Replace <code>&lt;repository-url&gt;</code> with the actual URL of this repository.</p>
 
-## License
+        <h2 id="usage">Usage</h2>
+        <p>After cloning the repository, follow the additional steps mentioned in the README or project documentation to configure and use the Google Drive API integration.</p>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+        <h2 id="additional-information">Additional Information</h2>
+        <ul>
+            <li>Documentation for the <code>laravel-google-drive-storage</code> library: <a href="https://github.com/yaza-putu/laravel-google-drive-storage">laravel-google-drive-storage on GitHub</a></li>
+            <li>Google Drive API documentation: <a href="https://developers.google.com/drive">Google Drive API</a></li>
+            <li>Laravel documentation: <a href="https://laravel.com/docs">Laravel Documentation</a></li>
+        </ul>
+
+        <h2 id="contributing">Contributing</h2>
+        <p>Contributions are welcome! Fork the project, make your changes, and submit a pull request.</p>
+
+        <h2 id="license">License</h2>
+        <p>This project is open-sourced software licensed under the <a href="LICENSE.md">MIT license</a>.</p>
+    </div>
+</body>
+
+</html>
