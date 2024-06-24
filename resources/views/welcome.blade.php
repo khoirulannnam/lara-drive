@@ -1,6 +1,6 @@
 <x-app-layouts>
     <div class="p-4 text-3xl font-semibold flex justify-center">
-        Selamat Datang Di Laravel Drive
+        Welcome to Laravel Drive
     </div>
     <div class="container mx-auto">
         @if (session('success'))

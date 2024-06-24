@@ -2,10 +2,10 @@
     <div class="p-6 bg-white border-b border-gray-200">
         <a href="/">
             <button class="p-2 bg-blue-500 text-white rounded-lg">
-                Kembali
+                Back
             </button>
         </a>
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Daftar File di Google Drive</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">List file from Google Drive</h2>
         @if (count($files) != 0)
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach ($files as $file)
@@ -17,13 +17,13 @@
                         </div>
                         <div class="flex justify-center">
                             <a href="{{ route('web.stream-by-path', ['path' => $file['path']]) }}"
-                                class="text-blue-600 hover:underline">Lihat</a>
+                                class="text-blue-600 hover:underline">See</a>
                         </div>
                     </div>
                 @endforeach
             </div>
         @else
-            <p class="text-gray-600">Tidak ada file yang ditemukan.</p>
+            <p class="text-gray-600">File not found.</p>
         @endif
     </div>
 </x-app-layouts>

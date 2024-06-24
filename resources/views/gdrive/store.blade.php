@@ -2,10 +2,10 @@
     <div class="w-full bg-white p-6 rounded-lg shadow-md">
         <a href="/">
             <button class="p-2 bg-blue-500 text-white rounded-lg">
-                Kembali
+                Back
             </button>
         </a>
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Upload Foto</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Upload Photo</h2>
         <form action="{{ route('web.upload') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
             @csrf
             <div class="flex items-center justify-center w-full">
@@ -19,7 +19,7 @@
                 </label>
             </div>
             <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                Upload Foto
+                Submit
             </button>
         </form>
     </div>
